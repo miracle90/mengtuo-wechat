@@ -627,7 +627,7 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.5":
   version "7.3.4"
   resolved "http://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
   integrity sha1-c9ErqBnjZfz3/RUq7VbW35fSHIM=
@@ -702,6 +702,11 @@
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/@types/q/download/@types/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha1-SP2YwVYf5xi2FzPa7Ub/EVtJbhg=
+
+"@vant/icons@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@vant/icons/-/icons-1.0.8.tgz#10cf8d691747ae27e3f9f9f025afd7a3c350810d"
+  integrity sha512-6q5Jz4Bx9wEIkVrchmhId0q+eoayYLdPqbcByct+jU+T3OhGw3bxCRpAvC+nq0hlqtTQL1dyMWDbOOjMO2GzZg==
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0-beta.2":
   version "1.0.0-beta.2"
@@ -1397,6 +1402,14 @@ aws4@^1.8.0:
   version "1.8.0"
   resolved "http://registry.npm.taobao.org/aws4/download/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha1-8OAD2cqef1nHpQiUXXsu+aBKVC8=
+
+axios@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  integrity sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
+  dependencies:
+    follow-redirects "^1.3.0"
+    is-buffer "^1.1.5"
 
 babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -3360,6 +3373,11 @@ fast-levenshtein@~2.0.4:
   resolved "http://registry.npm.taobao.org/fast-levenshtein/download/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
+fastclick@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/fastclick/-/fastclick-1.0.6.tgz#161625b27b1a5806405936bda9a2c1926d06be6a"
+  integrity sha1-FhYlsnsaWAZAWTa9qaLBkm0Gvmo=
+
 fastparse@^1.1.1:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/fastparse/download/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
@@ -3523,7 +3541,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.3.0:
   version "1.7.0"
   resolved "http://registry.npm.taobao.org/follow-redirects/download/follow-redirects-1.7.0.tgz#489ebc198dc0e7f64167bd23b03c4c19b5784c76"
   integrity sha1-SJ68GY3A5/ZBZ70jsDxMGbV4THY=
@@ -7709,10 +7727,25 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+vant@^1.5.9:
+  version "1.5.9"
+  resolved "https://registry.yarnpkg.com/vant/-/vant-1.5.9.tgz#febf3bdbde55df3f7662cd483a2d06085678d110"
+  integrity sha512-9hUu5l/3C3k4VX0TyXURe8dR3kQoR3nfd7zjg/QSGM4Klf+DfLTpPxOuatIOnivr/jDLXCot/2tu+uFHxCCkhw==
+  dependencies:
+    "@babel/runtime" "^7.1.5"
+    "@vant/icons" "1.0.8"
+    "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0-beta.2"
+    vue-lazyload "1.2.3"
+
 vary@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vconsole@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/vconsole/-/vconsole-3.3.0.tgz#42629c07fb3b6a72733d2bbc417ee3e84b2bc76e"
+  integrity sha512-0b3p8PseD8JQG2mraWmsi/5Zto3wRakCu+tByb06Tkz3XeQ8n4UAkGVDz8iSr3c2e33d+EXDH0K4ZaS7SmiLPg==
 
 vendors@^1.0.0:
   version "1.0.2"
@@ -7763,6 +7796,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.3"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
   integrity sha1-J1b0bLMlgFTF9HI96K5+hzAqHM8=
+
+vue-lazyload@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.2.3.tgz#901f9ec15c7e6ca78781a2bae4a343686bdedb2c"
+  integrity sha512-DC0ZwxanbRhx79tlA3zY5OYJkH8FYp3WBAnAJbrcuoS8eye1P73rcgAZhyxFSPUluJUTelMB+i/+VkNU/qVm7g==
 
 vue-loader@^15.6.2:
   version "15.7.0"
