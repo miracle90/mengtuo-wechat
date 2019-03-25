@@ -14,7 +14,7 @@ import Name from './views/Name.vue'
 Vue.use(Router)
 
 export default new Router({
-  // base: 'mengtuo',
+  base: 'mengtuo',
   routes: [
     {
       path: '/',

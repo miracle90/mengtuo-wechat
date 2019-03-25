@@ -1,9 +1,9 @@
 <template>
   <ul class="mall">
     <li v-for="(item, index) in mallList" :key="index">
-      <!-- <div class="img-wrapper">
+      <div class="img-wrapper">
         <img :src="item.url" alt="">
-      </div> -->
+      </div>
       <div class="info">
         <p class="title">{{item.name}}</p>
         <p class="score"><span>{{item.points}}</span>积分</p>

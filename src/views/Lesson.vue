@@ -2,7 +2,7 @@
   <transition name="slide">
     <div class="my-lesson">
       <Back></Back>
-      <ul>
+      <ul v-if="lessonList.length">
         <li v-for="(item, index) in lessonList" :key="index">
           <p><span class="label">教学内容：</span><span>{{item.contentName}}</span></p>
           <p><span class="label">课程教练：</span><span>{{item.teacherName}}</span></p>
@@ -10,6 +10,9 @@
           <div class="lesson-status" :class="item.status === 1 ? 'finish' : ''">{{item.status === 1 ? '已上课' : '待上课'}}</div>
         </li>
       </ul>
+      <div v-else>
+        还未预约任何课程哦，赶快去预约页面看看吧
+      </div>
     </div>
   </transition>
 </template>

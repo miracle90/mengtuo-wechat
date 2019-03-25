@@ -2,7 +2,7 @@
   <transition name="slide">
     <div class="earn-score">
       <Back></Back>
-      <ul>
+      <ul v-if="goodsList.length">
         <li v-for="(item, index) in goodsList" :key="index">
           <p><span class="label">商品名称：</span><span>{{item.name}}</span></p>
           <p><span class="label">市场价：</span><span>{{item.price}}</span></p>
@@ -10,6 +10,9 @@
           <div class="lesson-status" :class="item.status === '1' ? 'finish' : ''">{{item.status === '1' ? '已发货' : '待发货'}}</div>
         </li>
       </ul>
+      <div v-else>
+        还未兑换任何商品哦，赶紧去商城页面看看吧
+      </div>
     </div>
   </transition>
 </template>

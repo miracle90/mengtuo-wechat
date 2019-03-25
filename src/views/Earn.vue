@@ -2,67 +2,12 @@
   <transition name="slide">
     <div class="earn">
       <Back></Back>
-      <div class="earn-item">
-        <span class="title">缴费</span>
+      <div class="earn-item" v-for="(task, index) in taskList" :key="index">
+        <span class="title">{{task.type}}</span>
         <ul>
-          <li>
-            <span>4000半年</span>
-            <span>50</span>
-          </li>
-          <li>
-            <span>6999全年</span>
-            <span>100</span>
-          </li>
-          <li>
-            <span>9600u12全装备</span>
-            <span>100</span>
-          </li>
-        </ul>
-      </div>
-      <div class="earn-item">
-        <span class="title">推荐</span>
-        <ul>
-          <li>
-            <span>4000半年</span>
-            <span>50</span>
-          </li>
-          <li>
-            <span>6999全年</span>
-            <span>100</span>
-          </li>
-          <li>
-            <span>9600u12全装备</span>
-            <span>100</span>
-          </li>
-        </ul>
-      </div>
-      <div class="earn-item">
-        <span class="title">活动</span>
-        <ul>
-          <li>
-            <span>参加各种节日party</span>
-            <span>积分不等</span>
-          </li>
-        </ul>
-      </div>
-      <div class="earn-item">
-        <span class="title">上课</span>
-        <ul>
-          <li>
-            <span>连续3次出勤</span>
-            <span>3</span>
-          </li>
-          <li>
-            <span>体能测试合格</span>
-            <span>10</span>
-          </li>
-          <li>
-            <span>上课表现评分</span>
-            <span>教练评分</span>
-          </li>
-          <li>
-            <span>课后作业</span>
-            <span>1</span>
+          <li v-for="(item, i) in task.taskList" :key="i">
+            <span>{{item.name}}</span>
+            <span>{{item.reward}}</span>
           </li>
         </ul>
       </div>
@@ -71,19 +16,56 @@
 </template>
 
 <script>
+import { getTaskList } from '../common/api/index.js'
 import Back from '../components/Back.vue'
+import { Toast } from 'vant'
 
 export default {
   components: {
     Back
   },
   data () {
-    return {}
+    return {
+      taskList: []
+    }
   },
   methods: {
     back () {
       history.back()
+    },
+    filterTaskList (list) {
+      const arr = []
+      list.forEach(task => {
+        if (arr.filter(item => item.type === task.type).length) {
+          const index = arr.findIndex(i => i.type === task.type)
+          arr[index].taskList.push(task)
+        } else {
+          arr.push({
+            type: task.type,
+            taskList: [task]
+          })
+        }
+      })
+      return arr
+    },
+    getTaskList () {
+      getTaskList({
+        size: 100,
+        page: 1
+      }).then(res => {
+        const { code, page } = res.data
+        if (code === 0) {
+          this.taskList = this.filterTaskList(page.records)
+        } else {
+          Toast('查询数据失败，请刷新重试')
+        }
+      }).catch(() => {
+        Toast('网络异常，请刷新重试')
+      })
     }
+  },
+  mounted () {
+    this.getTaskList()
   }
 }
 </script>

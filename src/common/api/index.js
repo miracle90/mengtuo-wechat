@@ -66,3 +66,17 @@ export function getUserInfo (data) {
   const url = baseUrl + '/user/getUser'
   return axios.post(url, data)
 }
+
+// 获取任务列表
+export function getTaskList (data) {
+  const url = baseUrl + '/task/getTaskList'
+  return axios.post(url, data)
+}
+
+// 获取首页文章信息
+export function getIndexList (data) {
+  const url = baseUrl + '/index/getIndexList'
+  return axios.get(url, {
+    params: data
+  })
+}
