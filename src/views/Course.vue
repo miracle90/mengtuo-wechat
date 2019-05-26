@@ -1,5 +1,5 @@
 <template>
-  <ul class="course">
+  <ul class="course" v-if="courseList.length">
     <li v-for="(item, index) in courseList" :key="index">
       <p><span class="label">内容：</span><span>{{item.contentName}}</span></p>
       <p><span class="label">老师：</span><span>{{item.teacherName}}</span></p>
@@ -8,6 +8,9 @@
       <div class="appointment" @click="order(item.id)">预约</div>
     </li>
   </ul>
+  <div v-else>
+    新课程正在策划中，敬请期待
+  </div>
 </template>
 
 <script>
@@ -33,9 +36,11 @@ export default {
         wechat: this.username,
         name: ''
       }).then(res => {
-        const { code } = res.data
+        const { code, msg } = res.data
         if (code === 0) {
           Toast.success('预约成功')
+        } else {
+          Toast.fail(msg)
         }
       }).catch(err => {
         console.log(err)
@@ -46,7 +51,7 @@ export default {
         // userId: '',
         type: '1',
         page: 1,
-        size: 30
+        size: 1000
       }).then(res => {
         const { code, list } = res.data
         if (code === 0) {

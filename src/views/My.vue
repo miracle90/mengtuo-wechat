@@ -25,6 +25,7 @@
 
 <script>
 import { getUserInfo } from '../common/api/index.js'
+import { Toast } from 'vant'
 
 export default {
   data () {
@@ -52,11 +53,12 @@ export default {
           this.myScore = user.points
         }
       }).catch(() => {
-        this.$notify.error({
-          title: '错误',
-          message: '网络异常，请刷新重试',
-          offset: 100
-        })
+        Toast('网络异常，请刷新重试')
+        // this.$notify.error({
+        //   title: '错误',
+        //   message: '网络异常，请刷新重试',
+        //   offset: 100
+        // })
       })
     },
     logout (e) {
