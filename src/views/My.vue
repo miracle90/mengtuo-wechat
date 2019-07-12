@@ -3,7 +3,7 @@
     <div class="header">
       <img src="../assets/logo.png" alt="">
       <p>Hi，{{name}}</p>
-      <p>我的积分：{{myScore}}</p>
+      <p>我的积分：{{myScore}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剩余课时：{{remain || 0}}</p>
     </div>
     <div class="btn-wrapper">
       <router-link to="/earn">
@@ -32,6 +32,7 @@ export default {
     return {
       id: '',
       myScore: 0,
+      remain: 0,
       name: ''
     }
   },
@@ -51,6 +52,7 @@ export default {
         if (code === 0) {
           this.name = user.name
           this.myScore = user.points
+          this.remain = user.remain
         }
       }).catch(() => {
         Toast('网络异常，请刷新重试')
